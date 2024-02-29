@@ -16,6 +16,16 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    void OnEnable()
+    {
+        TopWallCollision.TopWallHit += Shrink;
+    }
+
+    void OnDisable()
+    {
+        TopWallCollision.TopWallHit -= Shrink;
+    }
+
     // Update is called once per frame
     void Update()
     {

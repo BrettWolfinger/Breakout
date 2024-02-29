@@ -20,12 +20,12 @@ public class ScoreManager : MonoBehaviour
 
     void OnEnable()
     {
-        BrickBehaviour.BrickWasDestroyed += UpdateScore;
+        BrickCollision.BrickWasDestroyed += UpdateScore;
     }
 
     void OnDisable()
     {
-        BrickBehaviour.BrickWasDestroyed -= UpdateScore;
+        BrickCollision.BrickWasDestroyed -= UpdateScore;
     }
 
     void UpdateScore(int value)

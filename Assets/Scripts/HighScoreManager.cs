@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.IO;
 
 public class HighScoreManager : MonoBehaviour
 {
     TextMeshProUGUI text;
     HighScore highScore;
-
+    string path;
     void Awake()
     {
         highScore = new HighScore();
+        path = Application.persistentDataPath + "/HighScore.json";
+        print(path);
         Load();
         text = GetComponent<TextMeshProUGUI>();
         text.text = "High Score: " + highScore.score.ToString();
@@ -35,16 +38,20 @@ public class HighScoreManager : MonoBehaviour
 
     void Load()
     {
-        string json = System.IO.File.ReadAllText("C:/Users/bdwol/Documents/Unity_Projects/Breakout/HighScore.json");
+        //If there is no save file that exists, create one
+        if (!File.Exists(path))
+        {
+            highScore.score = 0;
+            Save();
+        }
+        string json = System.IO.File.ReadAllText(path);
         JsonUtility.FromJsonOverwrite(json, highScore);
     }
 
     void Save()
     {
         string json = JsonUtility.ToJson(highScore);
-        print(json);
-        //System.IO.File.WriteAllText(Application.persistentDataPath + "/HighScore.json", json);
-        System.IO.File.WriteAllText("C:/Users/bdwol/Documents/Unity_Projects/Breakout/HighScore.json", json);
+        System.IO.File.WriteAllText(path, json);
     }
 
     public int GetHighScore()

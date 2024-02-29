@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System;
 
 public class LivesManager : MonoBehaviour
 {
     TextMeshProUGUI text;
     int lives = 3;
+    public static Action GameOver = delegate { };
 
     void Awake()
     {
@@ -31,8 +33,7 @@ public class LivesManager : MonoBehaviour
         text.text = "Lives: " + lives.ToString();
         if(lives == 0)
         {
-            Scene scene = SceneManager.GetActiveScene(); 
-            SceneManager.LoadScene(scene.name); 
+            GameOver.Invoke();
         }
     }
 }
