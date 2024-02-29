@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7650676366548018266}
   - component: {fileID: 2527657032539957456}
   - component: {fileID: 8876627306009689604}
+  - component: {fileID: 2363022993857139461}
   m_Layer: 0
   m_Name: Brick
   m_TagString: Brick
@@ -158,3 +159,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2363022993857139461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5322114174065789722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece6abdcd484c734b9e195452a61e92b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

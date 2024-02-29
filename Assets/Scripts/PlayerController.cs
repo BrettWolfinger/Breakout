@@ -30,6 +30,14 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(newPos);
     }
 
+    //narrows the paddle for when the ball hits the ceiling of the arena
+    void Shrink()
+    {
+        Vector2 shrink = gameObject.transform.localScale;
+        shrink.y = .5f;
+        gameObject.transform.localScale = shrink;
+    }
+
     void OnMove(InputValue value)
     {
         rawInput = value.Get<float>();
