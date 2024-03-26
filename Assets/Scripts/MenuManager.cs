@@ -31,24 +31,27 @@ public class MenuManager : MonoBehaviour
         ScoreManager.NewHighScore -= ShowHighScore;
     }
 
+    //After game ends stop gameplay and open restart menu 
     void OpenMenu()
     {
         Time.timeScale = 0;
-        //playAgainText.text = "Found ya";
         restartMenu.SetActive(true);
     }
 
+    //Change text on restart screen if all bricks destroyed
     private void BricksDestroyedEnding()
     {
         playAgainText.text = "Wow! All Bricks Destroyed!\nPlay again?";
         OpenMenu();
     }
 
+    //Change text on restart screen if new high score achieved
     void ShowHighScore(int newHighScore)
     {
         playAgainText.text = "New High Score!\n" + newHighScore.ToString() + "\nPlay again?";
     }
 
+    //Start gameplay over
     public void Restart()
     {
         Scene scene = SceneManager.GetActiveScene(); 

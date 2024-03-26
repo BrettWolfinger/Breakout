@@ -3500,6 +3500,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paddle
       objectReference: {fileID: 0}
+    - target: {fileID: 5622882543508245285, guid: 1d54e2a9fd724eb4ea23d192ecc7489f, type: 3}
+      propertyPath: moveSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6259739929276259625, guid: 1d54e2a9fd724eb4ea23d192ecc7489f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

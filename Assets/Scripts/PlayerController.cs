@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+//Put script on the player (paddle) prefab
 public class PlayerController : MonoBehaviour
 {
 
@@ -10,7 +11,6 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] float moveSpeed = 5f;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -26,12 +26,12 @@ public class PlayerController : MonoBehaviour
         TopWallCollision.TopWallHit -= Shrink;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Move();
     }
 
+    //Move paddle based on inputs from player
     void Move()
     {
         Vector2 newPos = new Vector2();

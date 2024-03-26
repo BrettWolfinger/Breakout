@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Collections;
 using UnityEngine;
 
+//Put on the ball prefab to control ball movement
 public class BallMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 3f;
@@ -45,13 +46,13 @@ public class BallMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) {
         
+        //Change balls direction
         direction = Vector2.Reflect(direction, other.contacts[0].normal);
 
-
+        //Increase movespeed each time a brick gets destroyed
         if(other.gameObject.tag == "Brick")
         {
             moveSpeed += moveSpeedIncrease;
-            print(moveSpeed);
         }
 
         rb.velocity = direction * moveSpeed;
@@ -63,6 +64,7 @@ public class BallMovement : MonoBehaviour
         }
     }
 
+    //Trigger placed below viewable screen to restart the game on a missed ball
     private void OnTriggerEnter2D(Collider2D other) {
         transform.position = new Vector2(0,0);
         GenerateStartingDirection();

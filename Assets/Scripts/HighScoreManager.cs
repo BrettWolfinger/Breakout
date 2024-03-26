@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System.IO;
 
+//Script to manage saving and updating the high score across play sessions
 public class HighScoreManager : MonoBehaviour
 {
     TextMeshProUGUI text;
@@ -29,6 +30,7 @@ public class HighScoreManager : MonoBehaviour
         ScoreManager.NewHighScore -= UpdateHighScore;
     }
 
+    //Update high score and text then save 
     void UpdateHighScore(int newHighScore)
     {
         highScore.score = newHighScore;
@@ -48,6 +50,7 @@ public class HighScoreManager : MonoBehaviour
         JsonUtility.FromJsonOverwrite(json, highScore);
     }
 
+    //Save highscore to file
     void Save()
     {
         string json = JsonUtility.ToJson(highScore);
